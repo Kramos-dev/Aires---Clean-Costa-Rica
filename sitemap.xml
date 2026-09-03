@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Página Principal -->
+  <url>
+    <loc>https://airconditioningcostarica.com/</loc>
+    <priority>1.00</priority>
+  </url>
+
+  <!-- Categoría Principal de Servicios -->
+  <url>
+    <loc>https://airconditioningcostarica.com/servicios/</loc>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- Páginas de Servicios HVAC Específicos -->
+  <url>
+    <loc>https://airconditioningcostarica.com/servicios/instalacion-aire-acondicionado/</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://airconditioningcostarica.com/servicios/mantenimiento-aire-acondicionado/</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://airconditioningcostarica.com/servicios/reparacion-aire-acondicionado/</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://airconditioningcostarica.com/servicios/limpieza-aire-acondicionado/</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://airconditioningcostarica.com/servicios/diagnostico-aire-acondicionado/</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://airconditioningcostarica.com/servicios/recarga-refrigerante-gas/</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://airconditioningcostarica.com/servicios/deteccion-fugas-gas/</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://airconditioningcostarica.com/servicios/instalacion-tecnologia-inverter/</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://airconditioningcostarica.com/servicios/mini-split-multi-split/</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://airconditioningcostarica.com/servicios/sistemas-hvac-comercial/</loc>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Cobertura Geográfica (SEO Local Costa Rica) -->
+  <url>
+    <loc>https://airconditioningcostarica.com/cobertura/san-jose-escazu-santa-ana/</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://airconditioningcostarica.com/cobertura/heredia-alajuela-cartago/</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://airconditioningcostarica.com/cobertura/jaco-herradura-los-suenos/</loc>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://airconditioningcostarica.com/cobertura/guanacaste-papagayo-nosara/</loc>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Secciones Generales -->
+  <url>
+    <loc>https://airconditioningcostarica.com/blog/</loc>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://airconditioningcostarica.com/contacto/</loc>
+    <priority>0.60</priority>
+  </url>
+</urlset>
