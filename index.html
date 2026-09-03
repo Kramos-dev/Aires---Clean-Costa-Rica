@@ -17,13 +17,13 @@
 <meta name="description" content="Instalación, mantenimiento y reparación de aire acondicionado y HVAC en Costa Rica. Diagnóstico preciso y servicio profesional para hogares y empresas.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="googlebot" content="index, follow">
-<link rel="canonical" href="https://www.airconditioningcostarica.com//">
+<link rel="canonical" href="https://airconditioningcostarica.com/">
 <meta name="author" content="Clean Air Costa Rica">
 <meta name="theme-color" content="#06152E">
 <meta name="color-scheme" content="light">
-<link rel="alternate" hreflang="es-cr" href="https://www.airconditioningcostarica.com//">
-<link rel="alternate" hreflang="es" href="https://www.airconditioningcostarica.com//">
-<link rel="alternate" hreflang="x-default" href="https://www.airconditioningcostarica.com//">
+<link rel="alternate" hreflang="es-cr" href="https://airconditioningcostarica.com/">
+<link rel="alternate" hreflang="es" href="https://airconditioningcostarica.com/">
+<link rel="alternate" hreflang="x-default" href="https://airconditioningcostarica.com/">
 
 <!-- SEO local: complementa (no sustituye) al schema LocalBusiness -->
 <meta name="geo.region" content="CR-SJ">
@@ -43,7 +43,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
-<link rel="manifest" href="www.airconditioningcostarica.com/">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 <meta name="application-name" content="Clean Air Costa Rica">
 <meta name="apple-mobile-web-app-title" content="Clean Air CR">
@@ -56,8 +56,8 @@
 <meta property="og:locale" content="es_CR">
 <meta property="og:title" content="Aire Acondicionado y Climatización en Costa Rica | Clean Air Costa Rica">
 <meta property="og:description" content="Instalación, mantenimiento y reparación de aire acondicionado y HVAC. Precisión técnica, confort real y atención profesional para hogares, comercios y empresas en Costa Rica.">
-<meta property="og:url" content="https://www.airconditioningcostarica.com//">
-<meta property="og:image" content="https://www.airconditioningcostarica.com//assets/images/og-cover.jpg">
+<meta property="og:url" content="https://airconditioningcostarica.com/">
+<meta property="og:image" content="https://airconditioningcostarica.com/assets/images/og-cover.jpg">
 <meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -69,7 +69,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Aire Acondicionado y Climatización en Costa Rica">
 <meta name="twitter:description" content="Instalación, mantenimiento y reparación de aire acondicionado y HVAC en Costa Rica. Servicio profesional y confort real.">
-<meta name="twitter:image" content="https://www.airconditioningcostarica.com//assets/images/og-cover.jpg">
+<meta name="twitter:image" content="https://airconditioningcostarica.com/assets/images/og-cover.jpg">
 
 <!-- ============================================================
      PERFORMANCE / RESOURCE HINTS
@@ -97,6 +97,8 @@
   --white: #FFFFFF;
   --text: #10233F;
   --muted: #64748B;
+  --urgent: #FF3B5C;
+  --urgent-dark: #C21E3C;
 
   --font-display: 'Space Grotesk', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
@@ -106,10 +108,13 @@
   --shadow-soft: 0 20px 60px -20px rgba(6, 21, 46, 0.25);
   --max-width: 1240px;
   --transition: 0.6s cubic-bezier(.22,.61,.36,1);
+  --fab-gap: 14px;
+  --fab-safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body { overflow-x: hidden; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
@@ -215,8 +220,9 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
   }
   .nav-toggle span { width: 24px; height: 2px; background: var(--deep-blue); border-radius: 2px; transition: var(--transition); }
   .mobile-nav { max-height: 0; overflow: hidden; transition: max-height .4s ease; background: var(--white); border-top: 1px solid rgba(16,35,63,.06); }
-  .mobile-nav.open { max-height: 500px; }
+  .mobile-nav.open { max-height: 80vh; overflow-y: auto; }
   .mobile-nav ul { display: flex; flex-direction: column; padding: 8px 24px 20px; }
+  .mobile-nav > ul { padding-bottom: 4px; }
   .mobile-nav a { display: block; padding: 12px 0; font-weight: 500; border-bottom: 1px solid rgba(16,35,63,.05); }
   .mobile-nav details { border-bottom: 1px solid rgba(16,35,63,.05); }
   .mobile-nav details summary {
@@ -228,6 +234,8 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
   .mobile-nav details[open] summary::after { content: "–"; }
   .mobile-nav details ul { padding-left: 12px; }
   .mobile-nav details ul li a { border-bottom: 1px solid rgba(16,35,63,.03); font-size: .9rem; font-weight: 400; padding: 10px 0; }
+  .mobile-nav-cta { display: flex; gap: 10px; padding: 16px 24px 24px; }
+  .mobile-nav-cta .btn { flex: 1; }
 }
 
 /* ==========================================================
@@ -331,7 +339,7 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
 
 /* FEEL / NEUROMARKETING */
 .feel { background: linear-gradient(180deg, var(--white), var(--ice)); text-align: center; }
-.feel-inner { max-width: 780px; }
+.feel-inner { max-width: 780px; margin: 0 auto; }
 .feel h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); }
 .feel-lead { color: var(--muted); font-size: 1.1rem; margin-top: 18px; }
 .feel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 50px; text-align: left; }
@@ -392,9 +400,13 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
 
 /* ==========================================================
    FOOTER
+   6 columnas reales: marca + Servicios + Soluciones + Empresa +
+   Recursos + Contacto. El grid ahora define 6 tracks (antes solo
+   definía 5, así que la columna de Contacto se rompía a una fila
+   nueva y desalineaba todo el footer en escritorio).
 ========================================================== */
 .site-footer { background: var(--deep-blue); color: rgba(234,249,255,.8); padding: 72px 0 30px; }
-.footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; }
+.footer-grid { display: grid; grid-template-columns: 1.6fr repeat(5, 1fr); gap: 32px; }
 .footer-brand p { font-size: .88rem; margin-top: 14px; color: rgba(234,249,255,.6); }
 .footer-col h3 { color: var(--white); font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 16px; }
 .footer-col li { margin-bottom: 10px; font-size: .88rem; }
@@ -402,29 +414,101 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
 .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); margin-top: 50px; padding-top: 24px; font-size: .8rem; color: rgba(234,249,255,.4); }
 
 /* ==========================================================
-   WHATSAPP FAB
+   BOTONES FLOTANTES — WhatsApp + Llamada urgente
+   Ambos siempre visibles, apilados, con un brillo tipo "perla"
+   (halo pulsante) para llamar la atención sin ser invasivos.
 ========================================================== */
-.whatsapp-fab {
-  position: fixed; bottom: 24px; right: 24px; z-index: 200;
-  display: flex; align-items: center; gap: 8px;
-  background: #25D366; color: var(--white); padding: 14px 20px; border-radius: 999px;
-  box-shadow: 0 14px 30px -8px rgba(0,0,0,.35); font-weight: 600; font-size: .9rem;
-  transition: transform .25s ease;
+.floating-actions {
+  position: fixed;
+  right: max(20px, var(--fab-gap));
+  bottom: calc(20px + var(--fab-safe-bottom));
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
 }
-.whatsapp-fab:hover { transform: translateY(-3px); }
+
+.fab-badge-247 {
+  position: absolute;
+  top: -8px; left: -8px;
+  background: var(--deep-blue);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: .62rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  padding: 3px 7px;
+  border-radius: 999px;
+  border: 1.5px solid var(--white);
+  z-index: 2;
+}
+
+.fab {
+  position: relative;
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 20px; border-radius: 999px;
+  color: var(--white); font-weight: 600; font-size: .9rem;
+  box-shadow: 0 14px 30px -8px rgba(0,0,0,.35);
+  transition: transform .25s ease, box-shadow .25s ease;
+  isolation: isolate;
+}
+.fab:hover, .fab:focus-visible { transform: translateY(-3px); }
+.fab-icon { position: relative; z-index: 1; display: flex; }
+.fab-icon svg { display: block; }
+
+/* Halo "perla que brilla": un anillo que respira detrás del botón */
+.fab::before {
+  content: "";
+  position: absolute; inset: -6px;
+  border-radius: inherit;
+  z-index: -1;
+  opacity: .55;
+  animation: pearlGlow 2.6s ease-in-out infinite;
+}
+.fab-whatsapp { background: #25D366; }
+.fab-whatsapp::before { background: radial-gradient(circle, rgba(37,211,102,.55), transparent 70%); }
+.fab-call { background: linear-gradient(135deg, var(--urgent), var(--urgent-dark)); }
+.fab-call::before { background: radial-gradient(circle, rgba(255,59,92,.55), transparent 70%); }
+
+@keyframes pearlGlow {
+  0%, 100% { transform: scale(1); opacity: .35; }
+  50% { transform: scale(1.35); opacity: .7; }
+}
+
+.fab-pulse-dot {
+  position: absolute; top: -3px; right: -3px; width: 10px; height: 10px;
+  border-radius: 50%; background: var(--air-cyan);
+  box-shadow: 0 0 0 rgba(56,217,255,.6);
+  animation: pulseDot 1.8s ease-in-out infinite;
+}
+@keyframes pulseDot {
+  0% { box-shadow: 0 0 0 0 rgba(56,217,255,.6); }
+  70% { box-shadow: 0 0 0 8px rgba(56,217,255,0); }
+  100% { box-shadow: 0 0 0 0 rgba(56,217,255,0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fab::before, .fab-pulse-dot { animation: none; }
+}
 
 /* ==========================================================
    RESPONSIVE
 ========================================================== */
 @media (max-width: 980px) {
   .spaces-grid, .services-grid, .process-list, .projects-grid, .testimonials-grid, .feel-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-brand { grid-column: 1 / -1; }
 }
 @media (max-width: 640px) {
   .spaces-grid, .services-grid, .process-list, .projects-grid, .testimonials-grid, .feel-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .hero-content { padding: 100px 20px 80px; }
-  .whatsapp-fab span { display: none; }
-  .whatsapp-fab { padding: 14px; }
+  .hero-actions { flex-direction: column; align-items: stretch; }
+  .hero-actions .btn { width: 100%; }
+  .fab span.fab-label { display: none; }
+  .fab { padding: 16px; }
+  .floating-actions { right: 16px; bottom: calc(16px + var(--fab-safe-bottom)); gap: 12px; }
 }
 
 </style>
@@ -490,8 +574,8 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-        "opens": "07:00",
-        "closes": "18:00"
+        "opens": "00:00",
+        "closes": "00:00"
       },
       "knowsAbout": [
         "Instalación de aire acondicionado",
@@ -726,15 +810,15 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
           <a href="/servicios/">Servicios <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
           <ul class="dropdown-menu">
             <li><a href="https://airconditioningcostarica.com/servicios/instalacion-aire-acondicionado/">Instalación de aire acondicionado</a></li>
-<li><a href="https://airconditioningcostarica.com/servicios/mantenimiento-aire-acondicionado/">Mantenimiento</a></li>
-<li><a href="https://airconditioningcostarica.com/servicios/reparacion-aire-acondicionado/">Reparación</a></li>
-<li><a href="https://airconditioningcostarica.com/servicios/limpieza-aire-acondicionado/">Limpieza</a></li>
-<li><a href="https://airconditioningcostarica.com/servicios/diagnostico-aire-acondicionado/">Diagnóstico de sistemas</a></li>
-<li><a href="https://airconditioningcostarica.com/servicios/recarga-refrigerante-gas/">Recarga de refrigerante</a></li>
-<li><a href="https://airconditioningcostarica.com/servicios/deteccion-fugas-gas/">Detección de fugas</a></li>
-<li><a href="https://airconditioningcostarica.com/servicios/instalacion-tecnologia-inverter/">Instalación Inverter</a></li>
-<li><a href="https://airconditioningcostarica.com/servicios/mini-split-multi-split/">Mini Split y Multi Split</a></li>
-<li><a href="https://airconditioningcostarica.com/servicios/sistemas-hvac-comercial/">Sistemas HVAC</a></li>
+            <li><a href="https://airconditioningcostarica.com/servicios/mantenimiento-aire-acondicionado/">Mantenimiento</a></li>
+            <li><a href="https://airconditioningcostarica.com/servicios/reparacion-aire-acondicionado/">Reparación</a></li>
+            <li><a href="https://airconditioningcostarica.com/servicios/limpieza-aire-acondicionado/">Limpieza</a></li>
+            <li><a href="https://airconditioningcostarica.com/servicios/diagnostico-aire-acondicionado/">Diagnóstico de sistemas</a></li>
+            <li><a href="https://airconditioningcostarica.com/servicios/recarga-refrigerante-gas/">Recarga de refrigerante</a></li>
+            <li><a href="https://airconditioningcostarica.com/servicios/deteccion-fugas-gas/">Detección de fugas</a></li>
+            <li><a href="https://airconditioningcostarica.com/servicios/instalacion-tecnologia-inverter/">Instalación Inverter</a></li>
+            <li><a href="https://airconditioningcostarica.com/servicios/mini-split-multi-split/">Mini Split y Multi Split</a></li>
+            <li><a href="https://airconditioningcostarica.com/servicios/sistemas-hvac-comercial/">Sistemas HVAC</a></li>
           </ul>
         </li>
         <li class="has-dropdown">
@@ -772,22 +856,47 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
   </div>
 
   <nav id="mobileNav" class="mobile-nav" aria-label="Navegación móvil">
-    
-<li><a href="https://airconditioningcostarica.com/servicios/instalacion-aire-acondicionado/">Instalación de aire acondicionado</a></li>
-<li><a href="https://airconditioningcostarica.com/servicios/mantenimiento-aire-acondicionado/">Mantenimiento</a></li>
-<li><a href="https://airconditioningcostarica.com/servicios/reparacion-aire-acondicionado/">Reparación</a></li>
-<li><a href="https://airconditioningcostarica.com/servicios/limpieza-aire-acondicionado/">Limpieza</a></li>
-<li><a href="https://airconditioningcostarica.com/servicios/diagnostico-aire-acondicionado/">Diagnóstico de sistemas</a></li>
-<li><a href="https://airconditioningcostarica.com/servicios/recarga-refrigerante-gas/">Recarga de refrigerante</a></li>
-<li><a href="https://airconditioningcostarica.com/servicios/deteccion-fugas-gas/">Detección de fugas</a></li>
-<li><a href="https://airconditioningcostarica.com/servicios/instalacion-tecnologia-inverter/">Instalación Inverter</a></li>
-<li><a href="https://airconditioningcostarica.com/servicios/mini-split-multi-split/">Mini Split y Multi Split</a></li>
-<li><a href="https://airconditioningcostarica.com/servicios/sistemas-hvac-comercial/">Sistemas HVAC</a></li>
-
-                                   
+    <ul>
+      <li>
+        <details>
+          <summary>Servicios</summary>
+          <ul>
+            <li><a href="https://airconditioningcostarica.com/servicios/instalacion-aire-acondicionado/">Instalación de aire acondicionado</a></li>
+            <li><a href="https://airconditioningcostarica.com/servicios/mantenimiento-aire-acondicionado/">Mantenimiento</a></li>
+            <li><a href="https://airconditioningcostarica.com/servicios/reparacion-aire-acondicionado/">Reparación</a></li>
+            <li><a href="https://airconditioningcostarica.com/servicios/limpieza-aire-acondicionado/">Limpieza</a></li>
+            <li><a href="https://airconditioningcostarica.com/servicios/diagnostico-aire-acondicionado/">Diagnóstico de sistemas</a></li>
+            <li><a href="https://airconditioningcostarica.com/servicios/recarga-refrigerante-gas/">Recarga de refrigerante</a></li>
+            <li><a href="https://airconditioningcostarica.com/servicios/deteccion-fugas-gas/">Detección de fugas</a></li>
+            <li><a href="https://airconditioningcostarica.com/servicios/instalacion-tecnologia-inverter/">Instalación Inverter</a></li>
+            <li><a href="https://airconditioningcostarica.com/servicios/mini-split-multi-split/">Mini Split y Multi Split</a></li>
+            <li><a href="https://airconditioningcostarica.com/servicios/sistemas-hvac-comercial/">Sistemas HVAC</a></li>
           </ul>
-      
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary>Soluciones</summary>
+          <ul>
+            <li><a href="/aire-acondicionado-residencial/">Residencial</a></li>
+            <li><a href="/aire-acondicionado-comercial/">Comercial</a></li>
+            <li><a href="/aire-acondicionado-industrial/">Industrial</a></li>
+            <li><a href="/aire-acondicionado-para-oficinas/">Oficinas</a></li>
+            <li><a href="/aire-acondicionado-para-hoteles/">Hoteles</a></li>
+            <li><a href="/aire-acondicionado-para-restaurantes/">Restaurantes</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a href="/proyectos/">Proyectos</a></li>
+      <li><a href="/blog/">Guía Clean Air</a></li>
+      <li><a href="/nosotros/">Nosotros</a></li>
+      <li><a href="/contacto/">Contacto</a></li>
     </ul>
+    <div class="mobile-nav-cta">
+      <a href="tel:+50663026080" class="btn btn-ghost">Llamar</a>
+      <a href="https://wa.me/50663026080?text=Hola%2C%20Clean%20Air%20Costa%20Rica.%20Deseo%20solicitar%20informaci%C3%B3n%20sobre%20un%20servicio%20de%20aire%20acondicionado."
+         class="btn btn-primary" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
   </nav>
 </header>
 
@@ -824,7 +933,7 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
       </div>
 
       <p class="hero-tags">Instalación · Mantenimiento · Reparación · Limpieza · HVAC</p>
-      <p class="hero-tags hero-tags-muted">Residencial · Comercial · Corporativo</p>
+      <p class="hero-tags hero-tags-muted">Residencial · Comercial · Corporativo · Atención 24/7</p>
     </div>
 
     <a href="#soluciones" class="scroll-cue" aria-label="Desplazarse a soluciones">
@@ -1068,27 +1177,26 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
   <!-- ============================================================
        TESTIMONIOS (placeholders — no publicar reseñas inventadas)
   ============================================================ -->
-  <!-- HTML -->
-<section class="section testimonials" aria-labelledby="testimonials-heading">
-  <div class="container">
-    <p class="section-eyebrow">Clientes</p>
-    <h2 id="testimonials-heading">Lo que dicen nuestros clientes</h2>
-    <div class="testimonials-grid">
-      <blockquote class="testimonial placeholder">
-        <p>Se nos apagó el aire acondicionado en plena madrugada y el calor era insoportable. Nos atendieron de inmediato, llegaron en la madrugada súper rápido y lo dejaron enfriando perfecto. ¡Increíble servicio 24/7!</p>
-        <footer>Mario Q. — Reparación Urgente de Aire Acondicionado</footer>
-      </blockquote>
-      <blockquote class="testimonial placeholder">
-        <p>Excelente trabajo de mantenimiento preventivo, limpieza profunda de filtros y recarga de gas refrigerante. Dejaron el Minisplit como nuevo y todo Impecable.</p>
-        <footer>Laura M. — Mantenimiento & Recarga de Gas</footer>
-      </blockquote>
-      <blockquote class="testimonial placeholder">
-        <p>Contraté la instalación de aires acondicionados para toda mi oficina. Tienen excelente disponibilidad 24/7, rapidez y un trato sumamente profesional.</p>
-        <footer>Carlos V. — Instalación de Sistemas de Climatización</footer>
-      </blockquote>
+  <section class="section testimonials" aria-labelledby="testimonials-heading">
+    <div class="container">
+      <p class="section-eyebrow">Clientes</p>
+      <h2 id="testimonials-heading">Lo que dicen nuestros clientes</h2>
+      <div class="testimonials-grid">
+        <blockquote class="testimonial placeholder">
+          <p>Se nos apagó el aire acondicionado en plena madrugada y el calor era insoportable. Nos atendieron de inmediato, llegaron en la madrugada súper rápido y lo dejaron enfriando perfecto. ¡Increíble servicio 24/7!</p>
+          <footer>Mario Q. — Reparación Urgente de Aire Acondicionado</footer>
+        </blockquote>
+        <blockquote class="testimonial placeholder">
+          <p>Excelente trabajo de mantenimiento preventivo, limpieza profunda de filtros y recarga de gas refrigerante. Dejaron el Minisplit como nuevo y todo Impecable.</p>
+          <footer>Laura M. — Mantenimiento &amp; Recarga de Gas</footer>
+        </blockquote>
+        <blockquote class="testimonial placeholder">
+          <p>Contraté la instalación de aires acondicionados para toda mi oficina. Tienen excelente disponibilidad 24/7, rapidez y un trato sumamente profesional.</p>
+          <footer>Carlos V. — Instalación de Sistemas de Climatización</footer>
+        </blockquote>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- ============================================================
        ZONA DE COBERTURA
@@ -1107,7 +1215,7 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
         <li><a href="/aire-acondicionado-costa-rica/">Heredia</a></li>
         <li><a href="/aire-acondicionado-costa-rica/">Alajuela</a></li>
         <li><a href="/aire-acondicionado-costa-rica/">Cartago</a></li>
-        <li><a href="/aire-acondicionado-costa-rica/">Guanacaste</a></li> 
+        <li><a href="/aire-acondicionado-costa-rica/">Guanacaste</a></li>
         <li><a href="/aire-acondicionado-costa-rica/">Jaco</a></li>
       </ul>
     </div>
@@ -1156,7 +1264,7 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
   <section class="section final-cta" aria-labelledby="final-cta-heading">
     <div class="container final-cta-inner">
       <h2 id="final-cta-heading">Quiero mejorar la climatización de mi espacio</h2>
-      <p>Diagnóstico preciso y servicio profesional para hogares, comercios y empresas en Costa Rica.</p>
+      <p>Diagnóstico preciso y servicio profesional para hogares, comercios y empresas en Costa Rica. Atención de emergencias 24/7.</p>
       <a href="tel:+50663026080" class="btn btn-primary btn-lg">Solicitar servicio</a>
     </div>
   </section>
@@ -1234,13 +1342,27 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
 </footer>
 
 <!-- ============================================================
-     WHATSAPP FAB
+     BOTONES FLOTANTES — WhatsApp + Llamada urgente
+     Siempre visibles (desktop y mobile), apilados en la esquina
+     inferior derecha, con halo pulsante tipo "perla".
 ============================================================ -->
-<a class="whatsapp-fab" href="https://wa.me/50663026080?text=Hola%2C%20Clean%20Air%20Costa%20Rica.%20Deseo%20solicitar%20informaci%C3%B3n%20sobre%20un%20servicio%20de%20aire%20acondicionado."
-   target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
-  <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M16.02 3C9.4 3 4 8.4 4 15.02c0 2.4.7 4.6 1.9 6.5L4 29l7.7-1.8c1.8 1 3.9 1.5 6.3 1.5C22.6 28.7 28 23.3 28 16.7S22.6 3 16.02 3zm0 23.3c-2.1 0-4-.6-5.6-1.6l-.4-.2-4.6 1.1 1.1-4.5-.3-.4c-1.1-1.7-1.7-3.6-1.7-5.6C4.5 9.1 9.6 4 16 4s11.5 5.1 11.5 11.5S22.4 27 16 27z"/></svg>
-  <span>WhatsApp</span>
-</a>
+<div class="floating-actions">
+  <a class="fab fab-call" href="tel:+50663026080" aria-label="Llamada urgente 24/7 a Clean Air Costa Rica">
+    <span class="fab-badge-247" aria-hidden="true">24/7</span>
+    <span class="fab-pulse-dot" aria-hidden="true"></span>
+    <span class="fab-icon" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z" stroke="currentColor" stroke-width="1.8"/></svg>
+    </span>
+    <span class="fab-label">Llamada urgente 24/7</span>
+  </a>
+  <a class="fab fab-whatsapp" href="https://wa.me/50663026080?text=Hola%2C%20Clean%20Air%20Costa%20Rica.%20Deseo%20solicitar%20informaci%C3%B3n%20sobre%20un%20servicio%20de%20aire%20acondicionado."
+     target="_blank" rel="noopener" aria-label="Escribir por WhatsApp a Clean Air Costa Rica">
+    <span class="fab-icon" aria-hidden="true">
+      <svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M16.02 3C9.4 3 4 8.4 4 15.02c0 2.4.7 4.6 1.9 6.5L4 29l7.7-1.8c1.8 1 3.9 1.5 6.3 1.5C22.6 28.7 28 23.3 28 16.7S22.6 3 16.02 3zm0 23.3c-2.1 0-4-.6-5.6-1.6l-.4-.2-4.6 1.1 1.1-4.5-.3-.4c-1.1-1.7-1.7-3.6-1.7-5.6C4.5 9.1 9.6 4 16 4s11.5 5.1 11.5 11.5S22.4 27 16 27z"/></svg>
+    </span>
+    <span class="fab-label">WhatsApp</span>
+  </a>
+</div>
 
 <script>
 /* ==========================================================
