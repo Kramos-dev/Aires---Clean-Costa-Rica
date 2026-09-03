@@ -96,7 +96,12 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
 .main-nav a::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--air-blue); transition: width .3s ease; }
 .main-nav a:hover::after, .main-nav a:focus-visible::after { width: 100%; }
 
-/* Dropdown */
+/* Ocultar navegación móvil en pantallas grandes */
+.mobile-nav {
+  display: none;
+}
+
+/* Dropdown Desktop */
 .nav-chevron { display: inline-block; margin-left: 4px; transition: transform .2s ease; vertical-align: -2px; }
 .dropdown-menu {
   position: absolute; top: 100%; left: -14px; margin-top: 14px;
@@ -105,6 +110,7 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
   opacity: 0; visibility: hidden; transform: translateY(8px);
   transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
   z-index: 60;
+  display: block;
 }
 .has-dropdown:hover .dropdown-menu,
 .has-dropdown:focus-within .dropdown-menu {
@@ -126,7 +132,14 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
     display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px;
   }
   .nav-toggle span { width: 24px; height: 2px; background: var(--deep-blue); border-radius: 2px; transition: var(--transition); }
-  .mobile-nav { max-height: 0; overflow: hidden; transition: max-height .4s ease; background: var(--white); border-top: 1px solid rgba(16,35,63,.06); }
+  .mobile-nav { 
+    display: block; 
+    max-height: 0; 
+    overflow: hidden; 
+    transition: max-height .4s ease; 
+    background: var(--white); 
+    border-top: 1px solid rgba(16,35,63,.06); 
+  }
   .mobile-nav.open { max-height: 500px; }
   .mobile-nav ul { display: flex; flex-direction: column; padding: 8px 24px 20px; }
   .mobile-nav a { display: block; padding: 12px 0; font-weight: 500; border-bottom: 1px solid rgba(16,35,63,.05); }
