@@ -83,351 +83,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"></noscript>
-<style>
-/* ==========================================================
-   CLEAN AIR COSTA RICA — DESIGN SYSTEM
-========================================================== */
-:root {
-  --air-cyan: #38D9FF;
-  --air-blue: #0878F9;
-  --deep-blue: #06152E;
-  --navy: #081D3D;
-  --royal-blue: #103A8A;
-  --ice: #EAF9FF;
-  --white: #FFFFFF;
-  --text: #10233F;
-  --muted: #64748B;
+<link rel="stylesheet" href="/assets/css/style.css">
 
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
-
-  --radius: 16px;
-  --radius-sm: 10px;
-  --shadow-soft: 0 20px 60px -20px rgba(6, 21, 46, 0.25);
-  --max-width: 1240px;
-  --transition: 0.6s cubic-bezier(.22,.61,.36,1);
-}
-
-*, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
-}
-
-body {
-  margin: 0;
-  font-family: var(--font-body);
-  color: var(--text);
-  background: var(--white);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
-ul { list-style: none; margin: 0; padding: 0; }
-
-.container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
-
-.skip-link {
-  position: absolute; left: -9999px; top: 0; z-index: 999;
-  background: var(--deep-blue); color: var(--white); padding: 12px 20px; border-radius: 0 0 8px 0;
-}
-.skip-link:focus { left: 0; }
-
-:focus-visible { outline: 3px solid var(--air-cyan); outline-offset: 2px; }
-
-h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 0; letter-spacing: -0.01em; }
-
-.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-
-/* ==========================================================
-   BUTTONS
-========================================================== */
-.btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  padding: 12px 22px; border-radius: 999px; font-weight: 600; font-size: 0.95rem;
-  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
-  white-space: nowrap;
-}
-.btn-lg { padding: 16px 30px; font-size: 1.02rem; }
-.btn-primary { background: linear-gradient(135deg, var(--air-cyan), var(--air-blue)); color: var(--white); box-shadow: 0 12px 30px -10px rgba(8,120,249,.55); }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 36px -10px rgba(8,120,249,.65); }
-.btn-outline { border: 1.5px solid rgba(255,255,255,.5); color: var(--white); }
-.btn-outline:hover { background: rgba(255,255,255,.1); transform: translateY(-2px); }
-.btn-ghost { border: 1.5px solid rgba(16,35,63,.15); color: var(--deep-blue); }
-.btn-ghost:hover { background: var(--ice); }
-.btn-text { color: var(--deep-blue); text-decoration: underline; text-underline-offset: 4px; }
-/* .btn-text sobre el hero (fondo oscuro) necesita un color claro; en fondos
-   claros (fuera del hero) sigue usando --deep-blue definido arriba. */
-.hero .btn-text { color: var(--air-cyan); }
-.hero .btn-text:hover, .hero .btn-text:focus-visible { color: var(--white); }
-
-/* ==========================================================
-   HEADER
-========================================================== */
-.site-header {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(255,255,255,.85); backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(16,35,63,.06);
-  transition: box-shadow .25s ease;
-}
-.header-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; gap: 24px; }
-.brand { display: flex; align-items: center; gap: 10px; }
-.brand-text { font-family: var(--font-display); font-size: .68rem; letter-spacing: .12em; line-height: 1.3; color: var(--deep-blue); }
-.brand-text b { font-size: .82rem; }
-
-.main-nav ul { display: flex; gap: 26px; }
-.main-nav > ul > li { position: relative; }
-.main-nav a { font-size: .92rem; font-weight: 500; color: var(--text); position: relative; }
-.main-nav a::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--air-blue); transition: width .3s ease; }
-.main-nav a:hover::after, .main-nav a:focus-visible::after { width: 100%; }
-
-/* Menú desplegable (Servicios / Soluciones) */
-.nav-chevron { display: inline-block; margin-left: 4px; transition: transform .2s ease; vertical-align: -2px; }
-.dropdown-menu {
-  position: absolute; top: 100%; left: -14px; margin-top: 14px;
-  min-width: 260px; background: var(--white); border-radius: var(--radius);
-  box-shadow: var(--shadow-soft); padding: 10px;
-  opacity: 0; visibility: hidden; transform: translateY(8px);
-  transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
-  z-index: 60;
-}
-.has-dropdown:hover .dropdown-menu,
-.has-dropdown:focus-within .dropdown-menu {
-  opacity: 1; visibility: visible; transform: translateY(0);
-}
-.has-dropdown:hover .nav-chevron,
-.has-dropdown:focus-within .nav-chevron { transform: rotate(180deg); }
-.dropdown-menu li { margin: 0; }
-.dropdown-menu a { display: block; padding: 9px 12px; border-radius: 8px; font-size: .88rem; font-weight: 500; }
-.dropdown-menu a::after { display: none; }
-.dropdown-menu a:hover, .dropdown-menu a:focus-visible { background: var(--ice); color: var(--air-blue); }
-
-.header-cta { display: flex; gap: 10px; }
-.nav-toggle { display: none; }
-
-@media (max-width: 980px) {
-  .main-nav, .header-cta { display: none; }
-  .nav-toggle {
-    display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px;
-  }
-  .nav-toggle span { width: 24px; height: 2px; background: var(--deep-blue); border-radius: 2px; transition: var(--transition); }
-  .mobile-nav { max-height: 0; overflow: hidden; transition: max-height .4s ease; background: var(--white); border-top: 1px solid rgba(16,35,63,.06); }
-  .mobile-nav.open { max-height: 500px; }
-  .mobile-nav ul { display: flex; flex-direction: column; padding: 8px 24px 20px; }
-  .mobile-nav a { display: block; padding: 12px 0; font-weight: 500; border-bottom: 1px solid rgba(16,35,63,.05); }
-  .mobile-nav details { border-bottom: 1px solid rgba(16,35,63,.05); }
-  .mobile-nav details summary {
-    list-style: none; cursor: pointer; padding: 12px 0; font-weight: 500;
-    display: flex; justify-content: space-between; align-items: center;
-  }
-  .mobile-nav details summary::-webkit-details-marker { display: none; }
-  .mobile-nav details summary::after { content: "+"; color: var(--air-blue); font-size: 1.1rem; }
-  .mobile-nav details[open] summary::after { content: "–"; }
-  .mobile-nav details ul { padding-left: 12px; }
-  .mobile-nav details ul li a { border-bottom: 1px solid rgba(16,35,63,.03); font-size: .9rem; font-weight: 400; padding: 10px 0; }
-}
-
-/* ==========================================================
-   HERO
-========================================================== */
-.hero {
-  position: relative; min-height: 92vh; display: flex; align-items: center;
-  overflow: hidden;
-  background: radial-gradient(120% 120% at 20% 0%, var(--royal-blue) 0%, var(--navy) 45%, var(--deep-blue) 100%);
-  color: var(--white);
-}
-.hero-bg { position: absolute; inset: 0; z-index: 0; }
-.hero-flow {
-  position: absolute; inset: -20%;
-  background:
-    radial-gradient(40% 60% at 30% 30%, rgba(56,217,255,.18), transparent 60%),
-    radial-gradient(50% 50% at 80% 70%, rgba(8,120,249,.22), transparent 60%);
-  filter: blur(30px);
-  animation: airDrift 18s ease-in-out infinite alternate;
-}
-@keyframes airDrift {
-  0% { transform: translate(0,0) scale(1); }
-  100% { transform: translate(3%, -3%) scale(1.05); }
-}
-.hero-particles { position: absolute; inset: 0; opacity: .5; }
-
-.hero-content { position: relative; z-index: 2; padding: 120px 24px 100px; max-width: 860px; }
-.eyebrow { font-family: var(--font-display); font-size: .78rem; letter-spacing: .22em; color: var(--air-cyan); margin-bottom: 18px; }
-
-.hero-title { font-size: clamp(2.1rem, 4.6vw, 3.4rem); color: var(--white); line-height: 1.15; font-weight: 600; }
-.hero-dynamic {
-  display: block; margin-top: 14px;
-  background: linear-gradient(120deg, var(--air-cyan), var(--white) 60%);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-  font-weight: 700; min-height: 1.3em;
-  transition: opacity .8s ease, transform .8s ease;
-}
-.hero-dynamic.fade-out { opacity: 0; transform: translateY(8px); }
-.hero-dynamic.fade-in { opacity: 1; transform: translateY(0); }
-
-.hero-sub { font-size: 1.1rem; color: rgba(234,249,255,.85); margin-top: 22px; max-width: 560px; }
-.hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
-.hero-tags { margin-top: 30px; font-size: .85rem; letter-spacing: .04em; color: rgba(234,249,255,.7); }
-.hero-tags-muted { color: rgba(234,249,255,.45); margin-top: 6px; }
-
-.scroll-cue { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 2; }
-.scroll-cue span { display: block; width: 22px; height: 36px; border: 2px solid rgba(255,255,255,.4); border-radius: 20px; position: relative; }
-.scroll-cue span::before {
-  content: ""; position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
-  width: 4px; height: 8px; background: var(--air-cyan); border-radius: 3px;
-  animation: scrollDot 1.8s ease-in-out infinite;
-}
-@keyframes scrollDot { 0%,100% { top:6px; opacity:1; } 60% { top:18px; opacity:.3; } }
-
-/* ==========================================================
-   SECTION GENERICS
-========================================================== */
-.section { padding: 96px 0; }
-.section-eyebrow { font-family: var(--font-display); font-size: .75rem; letter-spacing: .18em; color: var(--air-blue); margin-bottom: 12px; text-transform: uppercase; }
-.section h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); margin-bottom: 18px; }
-.section-lead { color: var(--muted); font-size: 1.05rem; max-width: 700px; }
-.section-note { color: var(--muted); font-size: .85rem; margin-top: -8px; margin-bottom: 24px; }
-
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
-.reveal.is-visible { opacity: 1; transform: translateY(0); }
-
-/* SPACES */
-.spaces { background: var(--ice); }
-.spaces-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 40px; }
-.space-card {
-  background: var(--white); border-radius: var(--radius); padding: 28px 24px;
-  box-shadow: var(--shadow-soft); transition: transform .3s ease;
-  color: var(--text);
-}
-.space-card:hover { transform: translateY(-6px); }
-.space-icon { color: var(--air-blue); margin-bottom: 16px; width: 34px; height: 34px; }
-.space-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
-.space-card p { color: var(--muted); font-size: .92rem; margin: 0; }
-
-/* SERVICES */
-.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; }
-.service-card {
-  border: 1px solid rgba(16,35,63,.08); border-radius: var(--radius); padding: 26px;
-  transition: border-color .3s ease, transform .3s ease;
-}
-.service-card:hover { border-color: var(--air-blue); transform: translateY(-4px); }
-.service-card h3 { font-size: 1.05rem; margin-bottom: 10px; }
-.service-card p { color: var(--muted); font-size: .92rem; margin: 0 0 14px; }
-.card-link { color: var(--air-blue); font-weight: 600; font-size: .9rem; }
-
-/* PROBLEMS */
-.problems { background: var(--navy); color: var(--white); }
-.problems h2, .problems .section-eyebrow { color: var(--white); }
-.problems-grid { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
-.problem-chip {
-  padding: 10px 18px; border-radius: 999px; border: 1px solid rgba(255,255,255,.2);
-  font-size: .9rem; transition: background .3s ease, border-color .3s ease;
-}
-.problem-chip:hover, .problem-chip:focus-visible { background: rgba(56,217,255,.15); border-color: var(--air-cyan); }
-.problems-cta { margin-top: 36px; }
-
-/* FEEL / NEUROMARKETING */
-.feel { background: linear-gradient(180deg, var(--white), var(--ice)); text-align: center; }
-.feel-inner { max-width: 780px; }
-.feel h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); }
-.feel-lead { color: var(--muted); font-size: 1.1rem; margin-top: 18px; }
-.feel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 50px; text-align: left; }
-.feel-block h3 { color: var(--air-blue); font-size: 1.1rem; margin-bottom: 8px; }
-.feel-block p { color: var(--muted); margin: 0; }
-
-/* PROCESS */
-.process-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 44px; }
-.process-list li { display: flex; gap: 16px; align-items: flex-start; }
-.process-num { font-family: var(--font-display); font-size: 1.6rem; color: var(--air-cyan); font-weight: 700; }
-.process-list h3 { font-size: 1rem; margin-bottom: 6px; }
-.process-list p { color: var(--muted); font-size: .9rem; margin: 0; }
-
-/* CLIENTS */
-.clients { background: var(--ice); text-align: center; }
-.clients-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; margin-top: 30px; }
-.client-badge {
-  padding: 14px 26px; background: var(--white); border-radius: var(--radius-sm);
-  font-family: var(--font-display); font-size: .78rem; letter-spacing: .1em; color: var(--muted);
-  box-shadow: var(--shadow-soft);
-}
-
-/* PROJECTS */
-.projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
-.project-card.placeholder {
-  aspect-ratio: 4/3; border-radius: var(--radius); display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(135deg, var(--royal-blue), var(--navy)); color: rgba(255,255,255,.6);
-  font-family: var(--font-display); letter-spacing: .1em; font-size: .85rem;
-}
-
-/* TESTIMONIALS */
-.testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
-.testimonial.placeholder {
-  border: 1px dashed rgba(16,35,63,.2); border-radius: var(--radius); padding: 24px; margin: 0;
-  color: var(--muted); font-style: italic;
-}
-.testimonial footer { margin-top: 14px; font-style: normal; font-size: .85rem; color: var(--text); }
-
-/* COVERAGE */
-.coverage-list { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-.coverage-list a { padding: 10px 18px; border-radius: 999px; border: 1px solid rgba(16,35,63,.12); font-size: .9rem; }
-.coverage-list a:hover, .coverage-list a:focus-visible { border-color: var(--air-blue); color: var(--air-blue); }
-
-/* FAQ */
-.faq-list { max-width: 780px; margin-top: 36px; }
-.faq-item { border-bottom: 1px solid rgba(16,35,63,.1); padding: 18px 0; }
-.faq-item summary { cursor: pointer; font-weight: 600; font-size: 1rem; list-style: none; }
-.faq-item summary::-webkit-details-marker { display: none; }
-.faq-item summary::after { content: "+"; float: right; color: var(--air-blue); font-size: 1.3rem; }
-.faq-item[open] summary::after { content: "–"; }
-.faq-item p { color: var(--muted); margin-top: 12px; }
-
-/* FINAL CTA */
-.final-cta { background: radial-gradient(120% 140% at 50% 0%, var(--royal-blue), var(--deep-blue)); color: var(--white); text-align: center; }
-.final-cta-inner { max-width: 640px; margin: 0 auto; }
-.final-cta h2 { color: var(--white); font-size: clamp(1.7rem, 3vw, 2.4rem); }
-.final-cta p { color: rgba(234,249,255,.8); margin: 18px 0 32px; }
-
-/* ==========================================================
-   FOOTER
-========================================================== */
-.site-footer { background: var(--deep-blue); color: rgba(234,249,255,.8); padding: 72px 0 30px; }
-.footer-grid { display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 32px; }
-.footer-brand p { font-size: .88rem; margin-top: 14px; color: rgba(234,249,255,.6); }
-.footer-col h3 { color: var(--white); font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 16px; }
-.footer-col li { margin-bottom: 10px; font-size: .88rem; }
-.footer-col a:hover, .footer-col a:focus-visible { color: var(--air-cyan); }
-.footer-bottom { border-top: 1px solid rgba(255,255,255,.08); margin-top: 50px; padding-top: 24px; font-size: .8rem; color: rgba(234,249,255,.4); }
-
-/* ==========================================================
-   WHATSAPP FAB
-========================================================== */
-.whatsapp-fab {
-  position: fixed; bottom: 24px; right: 24px; z-index: 200;
-  display: flex; align-items: center; gap: 8px;
-  background: #25D366; color: var(--white); padding: 14px 20px; border-radius: 999px;
-  box-shadow: 0 14px 30px -8px rgba(0,0,0,.35); font-weight: 600; font-size: .9rem;
-  transition: transform .25s ease;
-}
-.whatsapp-fab:hover { transform: translateY(-3px); }
-
-/* ==========================================================
-   RESPONSIVE
-========================================================== */
-@media (max-width: 980px) {
-  .spaces-grid, .services-grid, .process-list, .projects-grid, .testimonials-grid, .feel-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 640px) {
-  .spaces-grid, .services-grid, .process-list, .projects-grid, .testimonials-grid, .feel-grid { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-  .hero-content { padding: 100px 20px 80px; }
-  .whatsapp-fab span { display: none; }
-  .whatsapp-fab { padding: 14px; }
-}
-
-</style>
 
 <!-- ============================================================
      JSON-LD STRUCTURED DATA
@@ -511,7 +168,7 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
           {"@type": "Offer", "itemOffered": {"@id": "https://www.cleanaircostarica.com/servicios/reparacion-aire-acondicionado/#service"}},
           {"@type": "Offer", "itemOffered": {"@id": "https://www.cleanaircostarica.com/servicios/limpieza-aire-acondicionado/#service"}},
           {"@type": "Offer", "itemOffered": {"@id": "https://www.cleanaircostarica.com/servicios/diagnostico-aire-acondicionado/#service"}},
-          {"@type": "Offer", "itemOffered": {"@id": "https://www.cleanaircostarica.com/servicios/recarga-refrigerante/#service"}}
+          {"@type": "Offer", "itemOffered": {"@id": "https://www.cleanaircostarica.com/servicios/recarga-refrigerante-aire-acondicionado/#service"}}
         ]
       }
     },
@@ -558,10 +215,10 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
     },
     {
       "@type": "Service",
-      "@id": "https://www.cleanaircostarica.com/servicios/recarga-refrigerante/#service",
+      "@id": "https://www.cleanaircostarica.com/servicios/recarga-refrigerante-aire-acondicionado/#service",
       "name": "Recarga de refrigerante",
       "serviceType": "Recarga de refrigerante",
-      "url": "https://www.cleanaircostarica.com/servicios/recarga-refrigerante/",
+      "url": "https://www.cleanaircostarica.com/servicios/recarga-refrigerante-aire-acondicionado/",
       "provider": {"@id": "https://www.cleanaircostarica.com/#localbusiness"}
     },
     {
@@ -601,7 +258,7 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
         {"@type": "ListItem", "position": 3, "item": {"@id": "https://www.cleanaircostarica.com/servicios/reparacion-aire-acondicionado/#service"}},
         {"@type": "ListItem", "position": 4, "item": {"@id": "https://www.cleanaircostarica.com/servicios/limpieza-aire-acondicionado/#service"}},
         {"@type": "ListItem", "position": 5, "item": {"@id": "https://www.cleanaircostarica.com/servicios/diagnostico-aire-acondicionado/#service"}},
-        {"@type": "ListItem", "position": 6, "item": {"@id": "https://www.cleanaircostarica.com/servicios/recarga-refrigerante/#service"}},
+        {"@type": "ListItem", "position": 6, "item": {"@id": "https://www.cleanaircostarica.com/servicios/recarga-refrigerante-aire-acondicionado/#service"}},
         {"@type": "ListItem", "position": 7, "item": {"@id": "https://www.cleanaircostarica.com/aire-acondicionado-para-oficinas/#service"}},
         {"@type": "ListItem", "position": 8, "item": {"@id": "https://www.cleanaircostarica.com/aire-acondicionado-para-hoteles/#service"}},
         {"@type": "ListItem", "position": 9, "item": {"@id": "https://www.cleanaircostarica.com/aire-acondicionado-para-restaurantes/#service"}}
@@ -716,10 +373,10 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
             <li><a href="/servicios/reparacion-aire-acondicionado/">Reparación</a></li>
             <li><a href="/servicios/limpieza-aire-acondicionado/">Limpieza</a></li>
             <li><a href="/servicios/diagnostico-aire-acondicionado/">Diagnóstico de sistemas</a></li>
-            <li><a href="/servicios/recarga-refrigerante/">Recarga de refrigerante</a></li>
-            <li><a href="/servicios/deteccion-fugas-refrigerante/">Detección de fugas</a></li>
+            <li><a href="/servicios/recarga-refrigerante-aire-acondicionado/">Recarga de refrigerante</a></li>
+            <li><a href="/servicios/fugas-aire-acondicionado/">Detección de fugas</a></li>
             <li><a href="/servicios/aire-acondicionado-inverter/">Instalación Inverter</a></li>
-            <li><a href="/servicios/mini-split/">Mini Split y Multi Split</a></li>
+            <li><a href="/servicios/mini-multi-split/">Mini Split y Multi Split</a></li>
             <li><a href="/servicios/hvac/">Sistemas HVAC</a></li>
           </ul>
         </li>
@@ -768,10 +425,10 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
             <li><a href="/servicios/reparacion-aire-acondicionado/">Reparación</a></li>
             <li><a href="/servicios/limpieza-aire-acondicionado/">Limpieza</a></li>
             <li><a href="/servicios/diagnostico-aire-acondicionado/">Diagnóstico de sistemas</a></li>
-            <li><a href="/servicios/recarga-refrigerante/">Recarga de refrigerante</a></li>
-            <li><a href="/servicios/deteccion-fugas-refrigerante/">Detección de fugas</a></li>
+            <li><a href="/servicios/recarga-refrigerante-aire-acondicionado/">Recarga de refrigerante</a></li>
+            <li><a href="/servicios/fugas-aire-acondicionado/">Detección de fugas</a></li>
             <li><a href="/servicios/aire-acondicionado-inverter/">Instalación Inverter</a></li>
-            <li><a href="/servicios/mini-split/">Mini Split y Multi Split</a></li>
+            <li><a href="/servicios/mini-multi-split/">Mini Split y Multi Split</a></li>
             <li><a href="/servicios/hvac/">Sistemas HVAC</a></li>
           </ul>
         </details>
@@ -924,12 +581,12 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
         <article class="service-card">
           <h3>Recarga de refrigerante</h3>
           <p>Recarga y verificación de niveles de refrigerante según el tipo de sistema y fabricante.</p>
-          <a href="/servicios/recarga-refrigerante/" class="card-link">Ver servicio →</a>
+          <a href="/servicios/recarga-refrigerante-aire-acondicionado/" class="card-link">Ver servicio →</a>
         </article>
         <article class="service-card">
           <h3>Detección de fugas de refrigerante</h3>
           <p>Localización de fugas mediante revisión técnica de circuitos y componentes del sistema.</p>
-          <a href="/servicios/deteccion-fugas-refrigerante/" class="card-link">Ver servicio →</a>
+          <a href="/servicios/fugas-aire-acondicionado/" class="card-link">Ver servicio →</a>
         </article>
         <article class="service-card">
           <h3>Instalación Inverter</h3>
@@ -939,7 +596,7 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
         <article class="service-card">
           <h3>Mini Split y Multi Split</h3>
           <p>Sistemas ideales para climatizar una o varias zonas de forma independiente y eficiente.</p>
-          <a href="/servicios/mini-split/" class="card-link">Ver servicio →</a>
+          <a href="/servicios/mini-multi-split/" class="card-link">Ver servicio →</a>
         </article>
         <article class="service-card">
           <h3>Revisión eléctrica y de componentes</h3>
@@ -978,7 +635,7 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
         <a href="/servicios/diagnostico-aire-acondicionado/" class="problem-chip">Se apaga solo</a>
         <a href="/servicios/diagnostico-aire-acondicionado/" class="problem-chip">Consume demasiado</a>
         <a href="/servicios/diagnostico-aire-acondicionado/" class="problem-chip">Se congela</a>
-        <a href="/servicios/deteccion-fugas-refrigerante/" class="problem-chip">Pierde refrigerante</a>
+        <a href="/servicios/fugas-aire-acondicionado/" class="problem-chip">Pierde refrigerante</a>
         <a href="/servicios/diagnostico-aire-acondicionado/" class="problem-chip">Bajo flujo de aire</a>
         <a href="/servicios/diagnostico-aire-acondicionado/" class="problem-chip">Problemas eléctricos</a>
       </div>
@@ -1097,12 +754,12 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
       <ul class="coverage-list">
         <li><a href="/aire-acondicionado-san-jose/">San José</a></li>
         <li><a href="/aire-acondicionado-costa-rica/">Escazú</a></li>
-        <li><a href="/aire-acondicionado-costa-rica/">Santa Ana</a></li>
-        <li><a href="/aire-acondicionado-costa-rica/">Curridabat</a></li>
-        <li><a href="/aire-acondicionado-costa-rica/">Desamparados</a></li>
-        <li><a href="/aire-acondicionado-costa-rica/">Heredia</a></li>
-        <li><a href="/aire-acondicionado-costa-rica/">Alajuela</a></li>
-        <li><a href="/aire-acondicionado-costa-rica/">Cartago</a></li>
+        <li><a href="/aire-acondicionado-santa-ana/">Santa Ana</a></li>
+        <li><a href="/aire-acondicionado-curridabat/">Curridabat</a></li>
+        <li><a href="/aire-acondicionado-desamparados/">Desamparados</a></li>
+        <li><a href="/aire-acondicionado-heredia/">Heredia</a></li>
+        <li><a href="/aire-acondicionado-alajuela/">Alajuela</a></li>
+        <li><a href="/aire-acondicionado-cartago/">Cartago</a></li>
       </ul>
     </div>
   </section>
@@ -1227,6 +884,16 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
   </div>
 </footer>
 
+
+<!-- LLAMADA FLOTANTE -->
+<a class="call-fab" href="tel:{{TELEFONO_REAL}}" aria-label="Llamar a Clean Air Costa Rica">
+  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" aria-hidden="true">
+    <path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1L6.6 10.8z"
+      stroke="currentColor" stroke-width="1.6"/>
+  </svg>
+  <span>Llamar</span>
+</a>
+
 <!-- ============================================================
      WHATSAPP FAB
 ============================================================ -->
@@ -1236,163 +903,6 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
   <span>WhatsApp</span>
 </a>
 
-<script>
-/* ==========================================================
-   CLEAN AIR COSTA RICA — MAIN.JS
-========================================================== */
-(function () {
-  "use strict";
-
-  var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  /* ------------------------------------------------------
-     1) HEADLINE DINÁMICO (cada 4 segundos, decorativo)
-  ------------------------------------------------------ */
-  var headlines = [
-    "Respira frescura. Vive el confort.",
-    "Climatización profesional en Costa Rica.",
-    "Instalación de aire acondicionado con precisión.",
-    "Mantenimiento que protege el rendimiento de tu equipo.",
-    "Espacios frescos. Ambientes agradables.",
-    "Soluciones HVAC para hogares y empresas.",
-    "Diagnóstico preciso. Servicio profesional.",
-    "Más confort. Más tranquilidad.",
-    "Aire limpio. Tecnología. Bienestar.",
-    "Tu espacio merece sentirse así.",
-    "Climatización diseñada alrededor de tu espacio.",
-    "Cuando el confort importa, hazlo profesionalmente."
-  ];
-
-  var headlineEl = document.getElementById("dynamicHeadline");
-
-  if (headlineEl && !prefersReducedMotion) {
-    var index = 0;
-    var ROTATE_MS = 4000;
-    var TRANSITION_MS = 700;
-
-    setInterval(function () {
-      headlineEl.classList.add("fade-out");
-      setTimeout(function () {
-        index = (index + 1) % headlines.length;
-        headlineEl.textContent = headlines[index];
-        headlineEl.classList.remove("fade-out");
-        headlineEl.classList.add("fade-in");
-      }, TRANSITION_MS);
-    }, ROTATE_MS);
-  }
-
-  /* ------------------------------------------------------
-     2) MENÚ MÓVIL
-  ------------------------------------------------------ */
-  var navToggle = document.getElementById("navToggle");
-  var mobileNav = document.getElementById("mobileNav");
-
-  if (navToggle && mobileNav) {
-    navToggle.addEventListener("click", function () {
-      var isOpen = mobileNav.classList.toggle("open");
-      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      navToggle.setAttribute("aria-label", isOpen ? "Cerrar menú" : "Abrir menú");
-    });
-
-    mobileNav.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        mobileNav.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
-        navToggle.setAttribute("aria-label", "Abrir menú");
-      });
-    });
-  }
-
-  /* ------------------------------------------------------
-     3) SCROLL REVEAL (IntersectionObserver)
-  ------------------------------------------------------ */
-  var revealTargets = document.querySelectorAll(
-    ".space-card, .service-card, .problem-chip, .feel-block, .process-list li, .project-card, .testimonial, .faq-item"
-  );
-
-  revealTargets.forEach(function (el) { el.classList.add("reveal"); });
-
-  if ("IntersectionObserver" in window && !prefersReducedMotion) {
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
-    );
-    revealTargets.forEach(function (el) { observer.observe(el); });
-  } else {
-    revealTargets.forEach(function (el) { el.classList.add("is-visible"); });
-  }
-
-  /* ------------------------------------------------------
-     4) PARTÍCULAS SUTILES EN EL HERO (canvas ligero)
-  ------------------------------------------------------ */
-  var particleHost = document.getElementById("heroParticles");
-
-  if (particleHost && !prefersReducedMotion) {
-    var canvas = document.createElement("canvas");
-    particleHost.appendChild(canvas);
-    var ctx = canvas.getContext("2d");
-    var particles = [];
-    var PARTICLE_COUNT = 36;
-
-    function resize() {
-      canvas.width = particleHost.clientWidth;
-      canvas.height = particleHost.clientHeight;
-    }
-
-    function createParticles() {
-      particles = [];
-      for (var i = 0; i < PARTICLE_COUNT; i++) {
-        particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          r: Math.random() * 1.6 + 0.4,
-          vy: Math.random() * 0.15 + 0.05,
-          o: Math.random() * 0.5 + 0.15
-        });
-      }
-    }
-
-    function tick() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(function (p) {
-        p.y -= p.vy;
-        if (p.y < -4) { p.y = canvas.height + 4; p.x = Math.random() * canvas.width; }
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(56, 217, 255," + p.o + ")";
-        ctx.fill();
-      });
-      requestAnimationFrame(tick);
-    }
-
-    window.addEventListener("resize", function () {
-      resize();
-      createParticles();
-    });
-
-    resize();
-    createParticles();
-    requestAnimationFrame(tick);
-  }
-
-  /* ------------------------------------------------------
-     5) HEADER: sombra al hacer scroll
-  ------------------------------------------------------ */
-  var header = document.getElementById("siteHeader");
-  if (header) {
-    window.addEventListener("scroll", function () {
-      header.style.boxShadow = window.scrollY > 12 ? "0 8px 24px -12px rgba(6,21,46,0.15)" : "none";
-    }, { passive: true });
-  }
-})();
-
-</script>
+<script src="/assets/js/main.js" defer></script>
 </body>
 </html>
