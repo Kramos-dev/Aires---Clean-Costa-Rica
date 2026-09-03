@@ -13,7 +13,7 @@
 <!-- ============================================================
      PRIMARY SEO
 ============================================================ -->
-<title>Instalación, mantenimiento y reparación de aire acondicionado y HVAC en Costa Rica</title>
+<title>Instalación, mantenimiento y reparación de aire acondicionado y HVAC en Costa Rica.</title>
 <meta name="description" content="Instalación, mantenimiento y reparación de aire acondicionado y HVAC en Costa Rica. Diagnóstico preciso y servicio profesional para hogares y empresas.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="googlebot" content="index, follow">
@@ -213,13 +213,20 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
 .header-cta { display: flex; gap: 10px; }
 .nav-toggle { display: none; }
 
+/* El menú móvil vive fuera del flujo visual en escritorio: sin esta
+   regla, el <nav id="mobileNav"> se renderizaba igual en pantallas
+   grandes (duplicando la navegación justo debajo del header) porque
+   antes solo el max-height:0 lo ocultaba, y esa regla vivía dentro
+   del media query de 980px. */
+.mobile-nav { display: none; }
+
 @media (max-width: 980px) {
   .main-nav, .header-cta { display: none; }
   .nav-toggle {
     display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px;
   }
   .nav-toggle span { width: 24px; height: 2px; background: var(--deep-blue); border-radius: 2px; transition: var(--transition); }
-  .mobile-nav { max-height: 0; overflow: hidden; transition: max-height .4s ease; background: var(--white); border-top: 1px solid rgba(16,35,63,.06); }
+  .mobile-nav { display: block; max-height: 0; overflow: hidden; transition: max-height .4s ease; background: var(--white); border-top: 1px solid rgba(16,35,63,.06); }
   .mobile-nav.open { max-height: 80vh; overflow-y: auto; }
   .mobile-nav ul { display: flex; flex-direction: column; padding: 8px 24px 20px; }
   .mobile-nav > ul { padding-bottom: 4px; }
