@@ -5,26 +5,48 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
 <!-- ============================================================
+     CONFIGURACIÓN: busca "{{" en todo el archivo y reemplaza cada
+     placeholder por el dato real antes de publicar (teléfono, email,
+     WhatsApp, dirección, coordenadas, redes sociales, horario).
+============================================================ -->
+
+<!-- ============================================================
      PRIMARY SEO
 ============================================================ -->
-<title>Aire Acondicionado y Climatización en Costa Rica | Clean Air Costa Rica</title>
-<meta name="description" content="Instalación, mantenimiento y reparación de aire acondicionado y sistemas HVAC en Costa Rica. Diagnóstico preciso, servicio profesional para hogares, comercios y empresas. Solicita tu servicio hoy.">
+<title>Aire Acondicionado en Costa Rica | Clean Air Costa Rica</title>
+<meta name="description" content="Instalación, mantenimiento y reparación de aire acondicionado y HVAC en Costa Rica. Diagnóstico preciso y servicio profesional para hogares y empresas.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta name="googlebot" content="index, follow">
 <link rel="canonical" href="https://www.cleanaircostarica.com/">
 <meta name="author" content="Clean Air Costa Rica">
 <meta name="theme-color" content="#06152E">
 <meta name="color-scheme" content="light">
-<html-language-alternates></html-language-alternates>
 <link rel="alternate" hreflang="es-cr" href="https://www.cleanaircostarica.com/">
+<link rel="alternate" hreflang="es" href="https://www.cleanaircostarica.com/">
 <link rel="alternate" hreflang="x-default" href="https://www.cleanaircostarica.com/">
+
+<!-- SEO local: complementa (no sustituye) al schema LocalBusiness -->
+<meta name="geo.region" content="CR-SJ">
+<meta name="geo.placename" content="San José, Costa Rica">
+
+<!-- Verificación de propiedad para Google Search Console y Bing Webmaster
+     Tools. Reemplaza el contenido por el código real que te da cada
+     plataforma al dar de alta el sitio (Configuración > Verificación
+     de propiedad > etiqueta HTML). -->
+<meta name="google-site-verification" content="{{GOOGLE_SEARCH_CONSOLE_CODE}}">
+<meta name="msvalidate.01" content="{{BING_WEBMASTER_CODE}}">
 
 <!-- ============================================================
      ICONS / MANIFEST
 ============================================================ -->
 <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+<meta name="application-name" content="Clean Air Costa Rica">
+<meta name="apple-mobile-web-app-title" content="Clean Air CR">
 
 <!-- ============================================================
      OPEN GRAPH
@@ -36,6 +58,7 @@
 <meta property="og:description" content="Instalación, mantenimiento y reparación de aire acondicionado y HVAC. Precisión técnica, confort real y atención profesional para hogares, comercios y empresas en Costa Rica.">
 <meta property="og:url" content="https://www.cleanaircostarica.com/">
 <meta property="og:image" content="https://www.cleanaircostarica.com/assets/images/og-cover.jpg">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Clean Air Costa Rica — climatización profesional">
@@ -50,11 +73,16 @@
 
 <!-- ============================================================
      PERFORMANCE / RESOURCE HINTS
+     Nota: se quitó el preload de /assets/images/hero-bg.webp porque
+     el hero actual es 100% CSS (gradientes), no usa esa imagen. Un
+     preload de un recurso que no se usa retrasa el LCP en vez de
+     ayudarlo. Si más adelante agregas una foto real de fondo al
+     hero, vuelve a agregar aquí su preload.
 ============================================================ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="/assets/images/hero-bg.webp" fetchpriority="high">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"></noscript>
 <style>
 /* ==========================================================
    CLEAN AIR COSTA RICA — DESIGN SYSTEM
@@ -112,6 +140,8 @@ ul { list-style: none; margin: 0; padding: 0; }
 
 h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 0; letter-spacing: -0.01em; }
 
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
 /* ==========================================================
    BUTTONS
 ========================================================== */
@@ -129,6 +159,10 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
 .btn-ghost { border: 1.5px solid rgba(16,35,63,.15); color: var(--deep-blue); }
 .btn-ghost:hover { background: var(--ice); }
 .btn-text { color: var(--deep-blue); text-decoration: underline; text-underline-offset: 4px; }
+/* .btn-text sobre el hero (fondo oscuro) necesita un color claro; en fondos
+   claros (fuera del hero) sigue usando --deep-blue definido arriba. */
+.hero .btn-text { color: var(--air-cyan); }
+.hero .btn-text:hover, .hero .btn-text:focus-visible { color: var(--white); }
 
 /* ==========================================================
    HEADER
@@ -137,6 +171,7 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
   position: sticky; top: 0; z-index: 100;
   background: rgba(255,255,255,.85); backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(16,35,63,.06);
+  transition: box-shadow .25s ease;
 }
 .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; gap: 24px; }
 .brand { display: flex; align-items: center; gap: 10px; }
@@ -146,7 +181,7 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
 .main-nav ul { display: flex; gap: 26px; }
 .main-nav a { font-size: .92rem; font-weight: 500; color: var(--text); position: relative; }
 .main-nav a::after { content: ""; position: absolute; left: 0; bottom: -4px; width: 0; height: 2px; background: var(--air-blue); transition: width .3s ease; }
-.main-nav a:hover::after { width: 100%; }
+.main-nav a:hover::after, .main-nav a:focus-visible::after { width: 100%; }
 
 .header-cta { display: flex; gap: 10px; }
 .nav-toggle { display: none; }
@@ -198,7 +233,7 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
   font-weight: 700; min-height: 1.3em;
   transition: opacity .8s ease, transform .8s ease;
 }
-.hero-dynamic.fade-out { opacity: 0; transform: translateY(8px) blur(2px); }
+.hero-dynamic.fade-out { opacity: 0; transform: translateY(8px); }
 .hero-dynamic.fade-in { opacity: 1; transform: translateY(0); }
 
 .hero-sub { font-size: 1.1rem; color: rgba(234,249,255,.85); margin-top: 22px; max-width: 560px; }
@@ -259,7 +294,7 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
   padding: 10px 18px; border-radius: 999px; border: 1px solid rgba(255,255,255,.2);
   font-size: .9rem; transition: background .3s ease, border-color .3s ease;
 }
-.problem-chip:hover { background: rgba(56,217,255,.15); border-color: var(--air-cyan); }
+.problem-chip:hover, .problem-chip:focus-visible { background: rgba(56,217,255,.15); border-color: var(--air-cyan); }
 .problems-cta { margin-top: 36px; }
 
 /* FEEL / NEUROMARKETING */
@@ -306,7 +341,7 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
 /* COVERAGE */
 .coverage-list { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
 .coverage-list a { padding: 10px 18px; border-radius: 999px; border: 1px solid rgba(16,35,63,.12); font-size: .9rem; }
-.coverage-list a:hover { border-color: var(--air-blue); color: var(--air-blue); }
+.coverage-list a:hover, .coverage-list a:focus-visible { border-color: var(--air-blue); color: var(--air-blue); }
 
 /* FAQ */
 .faq-list { max-width: 780px; margin-top: 36px; }
@@ -331,7 +366,7 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
 .footer-brand p { font-size: .88rem; margin-top: 14px; color: rgba(234,249,255,.6); }
 .footer-col h3 { color: var(--white); font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 16px; }
 .footer-col li { margin-bottom: 10px; font-size: .88rem; }
-.footer-col a:hover { color: var(--air-cyan); }
+.footer-col a:hover, .footer-col a:focus-visible { color: var(--air-cyan); }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); margin-top: 50px; padding-top: 24px; font-size: .8rem; color: rgba(234,249,255,.4); }
 
 /* ==========================================================
@@ -364,7 +399,11 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
 
 <!-- ============================================================
      JSON-LD STRUCTURED DATA
-     (Reemplazar placeholders {{ }} con datos reales antes de publicar)
+     Reemplaza cada {{PLACEHOLDER}} con el dato real antes de publicar.
+     Se agregaron entidades "WebPage" y "Service" independientes,
+     enlazadas por @id, para reforzar el entity SEO (mejor forma en
+     que Google entiende la relación entre negocio, sitio y servicios
+     que un solo bloque plano).
 ============================================================ -->
 <script type="application/ld+json">
 {
@@ -421,18 +460,90 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
         "opens": "{{HORA_APERTURA}}",
         "closes": "{{HORA_CIERRE}}"
       },
+      "knowsAbout": [
+        "Instalación de aire acondicionado",
+        "Mantenimiento de aire acondicionado",
+        "Reparación de aire acondicionado",
+        "Limpieza de aire acondicionado",
+        "Diagnóstico de sistemas HVAC",
+        "Recarga de refrigerante",
+        "Sistemas Inverter",
+        "Mini Split y Multi Split"
+      ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Servicios de climatización",
         "itemListElement": [
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Instalación de aire acondicionado", "url": "https://www.cleanaircostarica.com/servicios/instalacion-aire-acondicionado/"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Mantenimiento de aire acondicionado", "url": "https://www.cleanaircostarica.com/servicios/mantenimiento-aire-acondicionado/"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Reparación de aire acondicionado", "url": "https://www.cleanaircostarica.com/servicios/reparacion-aire-acondicionado/"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Limpieza de aire acondicionado", "url": "https://www.cleanaircostarica.com/servicios/limpieza-aire-acondicionado/"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Diagnóstico de sistemas HVAC", "url": "https://www.cleanaircostarica.com/servicios/diagnostico-aire-acondicionado/"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Recarga de refrigerante", "url": "https://www.cleanaircostarica.com/servicios/recarga-refrigerante/"}}
+          {"@type": "Offer", "itemOffered": {"@id": "https://www.cleanaircostarica.com/servicios/instalacion-aire-acondicionado/#service"}},
+          {"@type": "Offer", "itemOffered": {"@id": "https://www.cleanaircostarica.com/servicios/mantenimiento-aire-acondicionado/#service"}},
+          {"@type": "Offer", "itemOffered": {"@id": "https://www.cleanaircostarica.com/servicios/reparacion-aire-acondicionado/#service"}},
+          {"@type": "Offer", "itemOffered": {"@id": "https://www.cleanaircostarica.com/servicios/limpieza-aire-acondicionado/#service"}},
+          {"@type": "Offer", "itemOffered": {"@id": "https://www.cleanaircostarica.com/servicios/diagnostico-aire-acondicionado/#service"}},
+          {"@type": "Offer", "itemOffered": {"@id": "https://www.cleanaircostarica.com/servicios/recarga-refrigerante/#service"}}
         ]
       }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.cleanaircostarica.com/servicios/instalacion-aire-acondicionado/#service",
+      "name": "Instalación de aire acondicionado",
+      "serviceType": "Instalación de aire acondicionado",
+      "url": "https://www.cleanaircostarica.com/servicios/instalacion-aire-acondicionado/",
+      "provider": {"@id": "https://www.cleanaircostarica.com/#localbusiness"},
+      "areaServed": {"@id": "https://www.cleanaircostarica.com/#localbusiness"}
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.cleanaircostarica.com/servicios/mantenimiento-aire-acondicionado/#service",
+      "name": "Mantenimiento de aire acondicionado",
+      "serviceType": "Mantenimiento de aire acondicionado",
+      "url": "https://www.cleanaircostarica.com/servicios/mantenimiento-aire-acondicionado/",
+      "provider": {"@id": "https://www.cleanaircostarica.com/#localbusiness"}
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.cleanaircostarica.com/servicios/reparacion-aire-acondicionado/#service",
+      "name": "Reparación de aire acondicionado",
+      "serviceType": "Reparación de aire acondicionado",
+      "url": "https://www.cleanaircostarica.com/servicios/reparacion-aire-acondicionado/",
+      "provider": {"@id": "https://www.cleanaircostarica.com/#localbusiness"}
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.cleanaircostarica.com/servicios/limpieza-aire-acondicionado/#service",
+      "name": "Limpieza de aire acondicionado",
+      "serviceType": "Limpieza de aire acondicionado",
+      "url": "https://www.cleanaircostarica.com/servicios/limpieza-aire-acondicionado/",
+      "provider": {"@id": "https://www.cleanaircostarica.com/#localbusiness"}
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.cleanaircostarica.com/servicios/diagnostico-aire-acondicionado/#service",
+      "name": "Diagnóstico de sistemas HVAC",
+      "serviceType": "Diagnóstico de sistemas HVAC",
+      "url": "https://www.cleanaircostarica.com/servicios/diagnostico-aire-acondicionado/",
+      "provider": {"@id": "https://www.cleanaircostarica.com/#localbusiness"}
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.cleanaircostarica.com/servicios/recarga-refrigerante/#service",
+      "name": "Recarga de refrigerante",
+      "serviceType": "Recarga de refrigerante",
+      "url": "https://www.cleanaircostarica.com/servicios/recarga-refrigerante/",
+      "provider": {"@id": "https://www.cleanaircostarica.com/#localbusiness"}
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.cleanaircostarica.com/#servicios-lista",
+      "name": "Servicios de climatización en Costa Rica",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "item": {"@id": "https://www.cleanaircostarica.com/servicios/instalacion-aire-acondicionado/#service"}},
+        {"@type": "ListItem", "position": 2, "item": {"@id": "https://www.cleanaircostarica.com/servicios/mantenimiento-aire-acondicionado/#service"}},
+        {"@type": "ListItem", "position": 3, "item": {"@id": "https://www.cleanaircostarica.com/servicios/reparacion-aire-acondicionado/#service"}},
+        {"@type": "ListItem", "position": 4, "item": {"@id": "https://www.cleanaircostarica.com/servicios/limpieza-aire-acondicionado/#service"}},
+        {"@type": "ListItem", "position": 5, "item": {"@id": "https://www.cleanaircostarica.com/servicios/diagnostico-aire-acondicionado/#service"}},
+        {"@type": "ListItem", "position": 6, "item": {"@id": "https://www.cleanaircostarica.com/servicios/recarga-refrigerante/#service"}}
+      ]
     },
     {
       "@type": "WebSite",
@@ -446,6 +557,16 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
         "target": "https://www.cleanaircostarica.com/buscar/?q={search_term_string}",
         "query-input": "required name=search_term_string"
       }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.cleanaircostarica.com/#webpage",
+      "url": "https://www.cleanaircostarica.com/",
+      "name": "Aire Acondicionado en Costa Rica | Clean Air Costa Rica",
+      "isPartOf": {"@id": "https://www.cleanaircostarica.com/#website"},
+      "about": {"@id": "https://www.cleanaircostarica.com/#localbusiness"},
+      "inLanguage": "es-CR",
+      "breadcrumb": {"@id": "https://www.cleanaircostarica.com/#breadcrumb"}
     },
     {
       "@type": "BreadcrumbList",
@@ -580,7 +701,11 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
 
       <h1 id="hero-heading" class="hero-title">
         Aire Acondicionado y Climatización en Costa Rica
-        <span class="hero-dynamic" id="dynamicHeadline" aria-live="polite">Respira frescura. Vive el confort.</span>
+        <!-- El texto rotativo es decorativo/complementario: se oculta de lectores de
+             pantalla (aria-hidden) para no interrumpirlos con un anuncio cada 4s.
+             El span visually-hidden les da una sola versión fija y estable. -->
+        <span class="hero-dynamic" id="dynamicHeadline" aria-hidden="true">Respira frescura. Vive el confort.</span>
+        <span class="visually-hidden">Respira frescura. Vive el confort.</span>
       </h1>
 
       <p class="hero-sub">Aire acondicionado, climatización y soluciones HVAC para hogares, comercios y empresas.</p>
@@ -802,6 +927,10 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
 
   <!-- ============================================================
        PROYECTOS (placeholders)
+       Cuando agregues fotos reales aquí: usa <img loading="lazy"
+       decoding="async" width/height reales, formato WebP/AVIF y un
+       alt descriptivo, ej: alt="Instalación de aire acondicionado
+       Mini Split en oficina en Escazú".
   ============================================================ -->
   <section class="section projects" aria-labelledby="projects-heading">
     <div class="container">
@@ -816,7 +945,7 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
   </section>
 
   <!-- ============================================================
-       TESTIMONIOS (placeholders)
+       TESTIMONIOS (placeholders — no publicar reseñas inventadas)
   ============================================================ -->
   <section class="section testimonials" aria-labelledby="testimonials-heading">
     <div class="container">
@@ -990,7 +1119,7 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
   var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ------------------------------------------------------
-     1) HEADLINE DINÁMICO (cada 4 segundos)
+     1) HEADLINE DINÁMICO (cada 4 segundos, decorativo)
   ------------------------------------------------------ */
   var headlines = [
     "Respira frescura. Vive el confort.",
@@ -1042,6 +1171,7 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
       link.addEventListener("click", function () {
         mobileNav.classList.remove("open");
         navToggle.setAttribute("aria-expanded", "false");
+        navToggle.setAttribute("aria-label", "Abrir menú");
       });
     });
   }
@@ -1131,11 +1261,7 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
   var header = document.getElementById("siteHeader");
   if (header) {
     window.addEventListener("scroll", function () {
-      if (window.scrollY > 12) {
-        header.style.boxShadow = "0 8px 24px -12px rgba(6,21,46,0.15)";
-      } else {
-        header.style.boxShadow = "none";
-      }
+      header.style.boxShadow = window.scrollY > 12 ? "0 8px 24px -12px rgba(6,21,46,0.15)" : "none";
     }, { passive: true });
   }
 })();
