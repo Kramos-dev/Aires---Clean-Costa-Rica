@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+Clean air code   <!DOCTYPE html>
 <html lang="es-CR">
 <head>
 <meta charset="UTF-8">
@@ -322,40 +322,16 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
 .space-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
 .space-card p { color: var(--muted); font-size: .92rem; margin: 0; }
 
-/* SERVICES — APPLE / PREMIUM BENTO 2026 */
-.services { background: #f5f5f7; color: #111318; }
-.services .container { width: min(1240px, 100%); }
-.services-header { margin-bottom: 48px; }
-.services-heading-row { display:flex; align-items:flex-end; justify-content:space-between; gap:48px; }
-.services-heading-row .section-lead { max-width:360px; margin:0 0 5px; }
-.services-bento { display:grid; grid-template-columns:repeat(4,1fr); grid-template-rows:repeat(2,272px); gap:16px; }
-.ac-service-card { position:relative; display:block; overflow:hidden; min-width:0; border:1px solid rgba(17,19,24,.08); border-radius:28px; color:#fff; text-decoration:none; isolation:isolate; transform:translateZ(0); transition:transform 650ms cubic-bezier(.2,.8,.2,1),box-shadow 650ms cubic-bezier(.2,.8,.2,1),border-color 350ms ease; }
-.ac-service-card--featured { grid-column:span 2; grid-row:span 2; }
-.ac-service-card--small { grid-column:span 1; }
-.ac-service-card--light { grid-column:span 1; background:#fff; color:#111318; }
-.ac-service-card--horizontal { grid-column:span 2; display:grid; grid-template-columns:.95fr 1.05fr; background:#111318; }
-.ac-service-card__media,.ac-service-card__horizontal-media { position:relative; overflow:hidden; }
-.ac-service-card__media { position:absolute; inset:0; z-index:-2; }
-.ac-service-card__media img,.ac-service-card__horizontal-media img { width:100%; height:100%; display:block; object-fit:cover; transition:transform 900ms cubic-bezier(.2,.8,.2,1),filter 700ms ease; }
-.ac-service-card__overlay { position:absolute; inset:0; z-index:-1; background:linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.18) 30%,rgba(0,0,0,.88)); }
-.ac-service-card__content,.ac-service-card__horizontal-content { position:relative; z-index:2; display:flex; flex-direction:column; justify-content:space-between; height:100%; padding:28px; }
-.ac-service-card__top { display:flex; align-items:center; justify-content:space-between; gap:12px; }
-.ac-service-card__number { font-size:11px; font-weight:700; letter-spacing:.08em; opacity:.58; }
-.ac-service-card__tag { padding:7px 11px; border:1px solid rgba(255,255,255,.22); border-radius:999px; font-size:10px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; background:rgba(255,255,255,.08); backdrop-filter:blur(12px); }
-.ac-service-card__arrow { display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border:1px solid rgba(255,255,255,.22); border-radius:50%; font-size:20px; background:rgba(255,255,255,.08); transition:transform 450ms cubic-bezier(.2,.8,.2,1),background 300ms ease; }
-.ac-service-card h3 { margin:0 0 14px; font-size:clamp(21px,2vw,31px); font-weight:600; line-height:1.08; letter-spacing:-.045em; }
-.ac-service-card p { max-width:300px; margin:0; font-size:13px; line-height:1.65; opacity:.72; }
-.ac-service-card--light .ac-service-card__number { color:#9ba0a8; }
-.ac-service-card--light .ac-service-card__icon { display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%; background:#f1f3f5; color:#0071e3; font-size:19px; }
-.ac-service-card--light p { color:#6e737b; opacity:1; }
-.ac-service-card__text-link { display:inline-flex; align-items:center; gap:8px; margin-top:24px; color:#0071e3; font-size:13px; font-weight:600; }
-.ac-service-card__horizontal-media::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,transparent,rgba(17,19,24,.25)); }
-.ac-service-card__horizontal-content { padding:28px; }
-.ac-service-card__horizontal-content h3 { font-size:clamp(22px,2vw,30px); }
-@media (hover:hover) and (pointer:fine) { .ac-service-card:hover { transform:translateY(-6px); border-color:rgba(0,113,227,.28); box-shadow:0 24px 60px rgba(0,0,0,.10),0 4px 14px rgba(0,0,0,.04); } .ac-service-card:hover img { transform:scale(1.045); } .ac-service-card:hover .ac-service-card__arrow { transform:translate(4px,-4px); background:rgba(0,113,227,.85); } .ac-service-card--light:hover .ac-service-card__text-link span { transform:translate(4px,-4px); } }
-@media (max-width:900px) { .services-heading-row{align-items:flex-start;flex-direction:column;gap:24px}.services-bento{grid-template-columns:repeat(2,1fr);grid-template-rows:auto}.ac-service-card--featured{grid-column:span 2;grid-row:span 1;min-height:520px}.ac-service-card--small,.ac-service-card--light{min-height:340px}.ac-service-card--horizontal{grid-column:span 2;min-height:300px} }
-@media (max-width:600px) { .services-bento{display:flex;flex-direction:column;gap:12px}.ac-service-card--featured{min-height:460px}.ac-service-card--small,.ac-service-card--light{min-height:340px}.ac-service-card--horizontal{display:flex;flex-direction:column;min-height:430px}.ac-service-card__horizontal-media{height:220px;flex-shrink:0}.ac-service-card__horizontal-content{flex:1;padding:24px}.ac-service-card__content{padding:24px}.ac-service-card h3{font-size:27px} }
-@media (prefers-reduced-motion:reduce) { .ac-service-card,.ac-service-card *,.ac-service-card img{animation:none!important;transition:none!important}.ac-service-card{transform:none!important} }
+/* SERVICES */
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; }
+.service-card {
+  border: 1px solid rgba(16,35,63,.08); border-radius: var(--radius); padding: 26px;
+  transition: border-color .3s ease, transform .3s ease;
+}
+.service-card:hover { border-color: var(--air-blue); transform: translateY(-4px); }
+.service-card h3 { font-size: 1.05rem; margin-bottom: 10px; }
+.service-card p { color: var(--muted); font-size: .92rem; margin: 0 0 14px; }
+.card-link { color: var(--air-blue); font-weight: 600; font-size: .9rem; }
 
 /* PROBLEMS */
 .problems { background: var(--navy); color: var(--white); }
@@ -1021,32 +997,75 @@ h1, h2, h3 { font-family: var(--font-display); color: var(--deep-blue); margin: 
   </section>
 
   <!-- ============================================================
-       SERVICIOS — BENTO PREMIUM 2026
+       SERVICIOS (grid completo)
   ============================================================ -->
   <section class="section services" id="servicios" aria-labelledby="services-heading">
     <div class="container">
-      <div class="services-header">
-        <p class="section-eyebrow">Servicios de climatización</p>
-        <div class="services-heading-row">
-          <h2 id="services-heading">Confort diseñado<br><span style="color:#9ba0a8">para cada espacio.</span></h2>
-          <p class="section-lead">Instalación, mantenimiento, reparación y soluciones HVAC con atención profesional para hogares, comercios y empresas en Costa Rica.</p>
-        </div>
-      </div>
+      <p class="section-eyebrow">Servicios</p>
+      <h2 id="services-heading">Soluciones de climatización diseñadas para tu espacio</h2>
+      <p class="section-lead">Desde la instalación hasta el mantenimiento y diagnóstico, ofrecemos soluciones orientadas al rendimiento, confort y funcionamiento adecuado de cada sistema.</p>
 
-      <div class="services-bento">
-        <a class="ac-service-card ac-service-card--featured reveal" href="/servicios/instalacion-aire-acondicionado/" aria-label="Ver instalación de aire acondicionado">
-          <div class="ac-service-card__media"><img src="https://images.unsplash.com/photo-1631545806609-7c8f6e0a6c4c?auto=format&fit=crop&w=1800&q=85" alt="Instalación profesional de aire acondicionado" loading="lazy"></div>
-          <div class="ac-service-card__overlay"></div>
-          <div class="ac-service-card__content"><div class="ac-service-card__top"><span class="ac-service-card__number">01</span><span class="ac-service-card__tag">Servicio destacado</span></div><div><h3>Instalación de<br>aire acondicionado</h3><p>Sistemas Split, Mini Split, Multi Split e Inverter instalados con precisión y acabado profesional.</p></div></div>
-        </a>
-        <a class="ac-service-card ac-service-card--small reveal" href="/servicios/reparacion-aire-acondicionado/" aria-label="Ver reparación de aire acondicionado">
-          <div class="ac-service-card__media"><img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1200&q=85" alt="Técnico reparando aire acondicionado" loading="lazy"></div><div class="ac-service-card__overlay"></div><div class="ac-service-card__content"><div class="ac-service-card__top"><span class="ac-service-card__number">02</span><span class="ac-service-card__arrow">↗</span></div><div><h3>Reparación de<br>aire acondicionado</h3><p>Diagnóstico y solución de fallas eléctricas, mecánicas y de refrigeración.</p></div></div>
-        </a>
-        <a class="ac-service-card ac-service-card--small reveal" href="/servicios/mantenimiento-aire-acondicionado/" aria-label="Ver mantenimiento de aire acondicionado">
-          <div class="ac-service-card__media"><img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200&q=85" alt="Mantenimiento de sistema de climatización" loading="lazy"></div><div class="ac-service-card__overlay"></div><div class="ac-service-card__content"><div class="ac-service-card__top"><span class="ac-service-card__number">03</span><span class="ac-service-card__arrow">↗</span></div><div><h3>Mantenimiento<br>preventivo</h3><p>Conserva el rendimiento, la eficiencia y el funcionamiento adecuado de tu equipo.</p></div></div>
-        </a>
-        <a class="ac-service-card ac-service-card--light reveal" href="/servicios/limpieza-aire-acondicionado/" aria-label="Ver limpieza de aire acondicionado"><div class="ac-service-card__content"><div class="ac-service-card__top"><span class="ac-service-card__number">04</span><span class="ac-service-card__icon">✦</span></div><div><h3>Limpieza de<br>aire acondicionado</h3><p>Limpieza profunda, sanitización y eliminación de suciedad para mejorar el flujo de aire.</p><span class="ac-service-card__text-link">Explorar servicio <span>↗</span></span></div></div></a>
-        <a class="ac-service-card ac-service-card--horizontal reveal" href="/servicios/diagnostico-aire-acondicionado/" aria-label="Ver diagnóstico de sistemas HVAC"><div class="ac-service-card__horizontal-media"><img src="https://images.unsplash.com/photo-1581092919535-7146ff1a5905?auto=format&fit=crop&w=1200&q=85" alt="Diagnóstico técnico de aire acondicionado" loading="lazy"></div><div class="ac-service-card__horizontal-content"><div class="ac-service-card__top"><span class="ac-service-card__number">05</span><span class="ac-service-card__arrow">↗</span></div><div><h3>Diagnóstico<br>de sistemas HVAC</h3><p>Identificamos el origen real de la falla antes de intervenir.</p></div></div></a>
+      <div class="services-grid">
+        <article class="service-card">
+          <h3>Instalación de aire acondicionado</h3>
+          <p>Instalación técnica de sistemas Split, Mini Split, Multi Split e Inverter, adaptada al espacio y a su uso real.</p>
+          <a href="/servicios/instalacion-aire-acondicionado/" class="card-link">Ver servicio →</a>
+        </article>
+        <article class="service-card">
+          <h3>Mantenimiento de aire acondicionado</h3>
+          <p>Mantenimiento preventivo y correctivo para conservar el rendimiento del equipo a lo largo del tiempo.</p>
+          <a href="/servicios/mantenimiento-aire-acondicionado/" class="card-link">Ver servicio →</a>
+        </article>
+        <article class="service-card">
+          <h3>Reparación de aire acondicionado</h3>
+          <p>Diagnóstico y reparación de fallas eléctricas, mecánicas y de refrigeración con precisión técnica.</p>
+          <a href="/servicios/reparacion-aire-acondicionado/" class="card-link">Ver servicio →</a>
+        </article>
+        <article class="service-card">
+          <h3>Limpieza de aire acondicionado</h3>
+          <p>Limpieza profunda de unidades interiores y exteriores para mejorar la calidad del aire y el rendimiento.</p>
+          <a href="/servicios/limpieza-aire-acondicionado/" class="card-link">Ver servicio →</a>
+        </article>
+        <article class="service-card">
+          <h3>Diagnóstico de sistemas</h3>
+          <p>Evaluación técnica completa para identificar el origen real de una falla antes de intervenir.</p>
+          <a href="/servicios/diagnostico-aire-acondicionado/" class="card-link">Ver servicio →</a>
+        </article>
+        <article class="service-card">
+          <h3>Recarga de refrigerante</h3>
+          <p>Recarga y verificación de niveles de refrigerante según el tipo de sistema y fabricante.</p>
+          <a href="/servicios/recarga-refrigerante/" class="card-link">Ver servicio →</a>
+        </article>
+        <article class="service-card">
+          <h3>Detección de fugas de refrigerante</h3>
+          <p>Localización de fugas mediante revisión técnica de circuitos y componentes del sistema.</p>
+          <a href="/servicios/deteccion-fugas-refrigerante/" class="card-link">Ver servicio →</a>
+        </article>
+        <article class="service-card">
+          <h3>Instalación Inverter</h3>
+          <p>Instalación especializada de sistemas Inverter, con configuración adecuada al espacio.</p>
+          <a href="/servicios/aire-acondicionado-inverter/" class="card-link">Ver servicio →</a>
+        </article>
+        <article class="service-card">
+          <h3>Mini Split y Multi Split</h3>
+          <p>Sistemas ideales para climatizar una o varias zonas de forma independiente y eficiente.</p>
+          <a href="/servicios/mini-split/" class="card-link">Ver servicio →</a>
+        </article>
+        <article class="service-card">
+          <h3>Revisión eléctrica y de componentes</h3>
+          <p>Revisión de drenajes, evaporador, condensador y compresor como parte de un diagnóstico integral.</p>
+          <a href="/servicios/diagnostico-aire-acondicionado/" class="card-link">Ver servicio →</a>
+        </article>
+        <article class="service-card">
+          <h3>Sistemas HVAC</h3>
+          <p>Soluciones integrales de climatización, ventilación y control para proyectos de mayor escala.</p>
+          <a href="/servicios/hvac/" class="card-link">Ver servicio →</a>
+        </article>
+        <article class="service-card">
+          <h3>Automatización y control climático</h3>
+          <p>Integración de controles inteligentes para gestionar la climatización de forma más precisa.</p>
+          <a href="/servicios/hvac/" class="card-link">Ver servicio →</a>
+        </article>
       </div>
     </div>
   </section>
